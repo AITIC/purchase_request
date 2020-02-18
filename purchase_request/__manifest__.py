@@ -9,16 +9,16 @@
     'summary': 'Purchase orders, tenders and agreements',
     'description': "",
     'website': 'https://www.odoo.com/page/purchase',
-    'depends': ['account','purchase'],
+    'depends': ['account','purchase','partner_autocomplete'],
     'data': [
         'views/requster.xml',
         'reports/report.xml',
         'reports/report_card.xml',
         'security/ir.model.access.csv', 
     ],
-    # 'demo': [
-    #     'data/purchase_demo.xml',
-    # ],
+    'demo': [
+        'data/purchase_demo.xml',
+    ],
     'installable': True,
     'auto_install': False,
     'application': True,
