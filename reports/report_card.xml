@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="report_purchase">
+       <t t-call="web.html_container">
+           <t t-foreach="docs" t-as="doc">
+                <table border="1" style="border-style:solid">
+                 <div class="col-12" >
+                    <tr>
+                    <div  class="row">
+                       <div class="col-4">
+                            <th width="300px"><strong><span><t t-esc="doc.date_order"/></span></strong></th>
+                        </div>
+                        <div class="col-8">
+                            <th  height= "60px" width="300px"><strong>SATINALMA TALEBİ</strong>
+                            <br></br>
+                            <strong>PURCHASE ORDER</strong></th>
+                            <th width="200px"><strong><span class="float-right text-right"><t t-esc="doc.date_order"/></span></strong></th>
+                        </div>
+                    </div>
+                    </tr>
+                    <tr height= "70px">
+                    <div class="col-4">
+                        <div class="col-4 text-muted">
+                           <td width="300px"><span><t t-esc="doc.user_id"/> <t t-esc="doc.name_seq"/></span></td>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="col-6 text-muted">
+                            <td colspan="2" width="900"><span><t t-esc="doc.user_id"/> <t t-esc="doc.name_seq"/></span></td>
+                            
+                        </div>
+                        
+                    </div> 
+                    </tr>
+                     <tr height= "70px">
+                    <div class="row">
+                        <div class="col-8 ">
+                           <td width="300px"><span><t t-esc="doc.user_id"/> <t t-esc="doc.name_seq"/></span></td>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <td colspan="2" width="900"></td>
+                        </div>
+                        
+                    </div>
+                    <!-- <div class="col-6">
+                        <div class="col-2" >
+                            <td rowspan="7" width="10px" height="400px" style="float:left">z</td>
+                        </div>
+                        <div class="col-4" >
+                            <td  width="50px" height="50px" style="float:right">z</td>
+                        </div>
+                      </div>  -->
+                    </tr>
+                    <tr>
+                      <div class="col-6">
+                        <div class="col-2" >
+                            <td rowspan="7" width="10px" height="400px" style="float:left">z</td>
+                        </div>
+                        <div class="col-4" >
+                            <td  width="50px" height="50px" style="float:right">z</td>
+                        </div>
+                      </div>
+                    </tr>
+                    
+                   <tr>
+                     <div class="row">
+                        <div class="col-6">
+                         
+                            <td style="float:left" colspan="2" width="500px" height="90px" >
+                            <div class="col-6" style="float:left">
+                            <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left" />Qty/Adet:<br></br>
+                            <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>LS/Paket:<br></br>
+                            <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Qty-Enclosed:<br></br>
+                            </div>
+                            <div class="col-6" style="float:right">
+                            <input type="checkbox"  checked="" style="float:left"/>Total Amount/Toplam Tutar:<br></br>
+                            <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Para birimi/Currency:<br></br>
+                            <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>KDV Hariç(VAT):<br></br>
+                            </div>
+                            </td>
+                           
+                        </div>
+                      </div>
+                   </tr>
+                   <tr>
+                     <div class="row">
+                        <td style="float:left" colspan="2" width="500px" height="90px" >
+                        <div class="col-6" style="float:left">
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left" />Site/Şantiye:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>DDP-Delivered Duty Paid:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>DDU-Delivered Duty Unpaid:<br></br>
+                        </div>
+                        <div class="col-6" style="float:right">
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left" />IDS Merkez Ofis:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Supplier address/Tedarikçi Ofisi:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>EXW:<br></br>
+                        </div>
+                        </td>
+                      </div>
+                   </tr>
+                   <tr>
+                     <div class="row">
+                        <td style="float:left" colspan="2" width="500px" height="90px" >
+                        <div class="col-6" style="float:left">
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left" />Goods/Malzeme:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Service/İşçilik:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Consumable/Sarf Malzeme:<br></br>
+                        </div>
+                        <div class="col-6" style="float:right">
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left" />Spare Part/Yedek Parça:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Document/Doküman:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Warranty/Garanti:<br></br>
+                        </div>
+                        <div class="col-6" style="float:right">
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left" />Installation Support/Kur:<br></br>
+                           
+                        </div>
+                        </td>
+                      </div>
+                   </tr>
+                   <tr>
+                     <div class="row">
+                        <td style="float:left" colspan="2" width="500px" height="90px" >
+                        <div class="col-6" style="float:left">
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left" />User Manuel/Kullanım talimatı:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Maintenance Manuel/Bakım Talimatı:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>ATA, Shipping Documents:<br></br>
+                        </div>
+                        <div class="col-6" style="float:right">
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left" />Warranty Certificate/Garanti Belgesi:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>License Certificate/Lisans Sertifikası:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>EMC, CE etc:<br></br>
+                        </div>
+                        </td>
+                     </div>    
+                   </tr>
+                   <tr>
+                     <div class="row">
+                        <div class="col-6">
+                            <td colspan="2" width="500px" height="90px" >z</td>
+                        </div>
+                      </div>
+                   </tr>
+                   <tr>
+                     <div class="row">
+                        <td style="float:right" colspan="2" width="500px"  >
+                        <div class="col-6" style="float:left">
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left" />Supplier offer/Tedarikçi teklifi:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Client Specifiction/Musteri Sarfnameleri:<br></br>
+                           <input type="checkbox" id="oe_import_tracking" checked="checked" style="float:left"/>Other/Diğer:<br></br>
+                        </div>
+                        </td>
+                      </div>  
+                   </tr>
+                   <tr>
+                     <div class="col-xs-12">
+                        <div class="col-6">
+                            <td>o</td>
+                        </div>
+                        <div class="col-6">
+                            <td>o</td>
+                        </div>
+                      </div>
+                   </tr>
+                 </div>  
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>    
+ 
