@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+    <!-- <template id="report_purchase_request">
+      <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="doc">
+          <t
+            t-call="purchase_request.report_purchase"
+            t-lang="res_company.partner_id.lang"
+            />
+        </t>
+      </t>
+    </template> -->
+    <report
+            id="report_purchase_request" 
+            model="purchase.requster" 
+            string="Purchase Request"
+            report_type="qweb-pdf"
+            name="purchase_request.report_purchase" 
+            file="purchase_request.report_purchase"/>
+</odoo>
