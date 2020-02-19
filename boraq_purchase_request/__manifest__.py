@@ -3,13 +3,12 @@
 
 {
     'name': 'Purchase Request',
-    'version': '12.0',
+    'version': '13.0',
     'category': 'Purchases',
-    'author': "Boraq-Group",
-    'summary': 'Purchase Request is an alternative simple module for Approvals in Odoo',
+    'summary': 'Purchase Request is an alternative app for Approvals module',
     'description': "Long description of module's purpose",
     'website': 'https://boraq-group.com',
-    'depends': ['account','purchase','partner_autocomplete'],
+    'depends': ['account','purchase'],
     'data': [
         'views/requster.xml',
         'reports/report.xml',

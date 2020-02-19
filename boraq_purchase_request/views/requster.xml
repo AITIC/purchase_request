@@ -7,11 +7,10 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name_seq" readonly="1"/>
-                    <field name="approver_id" options="{'no_create_edit': True}"/>
+                    <field name="approver_id" options="{'no_create_edit': True}"  />
                     <field name="description"/>
                     <field name="date_order"/>
-                    <field name="state" />
-                   
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
@@ -20,15 +19,13 @@
             <field name="name">purchase.requster.form</field>
             <field name="model">purchase.requster</field>
             <field name="arch" type="xml">
-           
                 <form>
-
                     <header>
                         <button name="action_purchase" string="To Approve" type="object" states="draft" class="oe_highlight" /> 
                         <button name="button_approve" string="Convert To PRQ" attrs="{'invisible':['|',('purchase_order_id','!=',[]),('state','in',['draft','drft','con','rej','toapprove','app','reject',])]}" type="object" groups="purchase.group_purchase_manager"  class="oe_highlight" />
                         <button name="button_cancel" string="Cancel" states="acc" type="object"  groups = "purchase.group_purchase_manager"  class="oe_highlight" />
                         <button name="button_convert" string="Convert To Draft" attrs="{'invisible':['|', ('state', 'not in', ('rej'))]}" type="object"  groups = "purchase.group_purchase_manager"  class="oe_highlight" />
-                        <button name="button_create" string="Approver"  states="con" type="object"  groups = "purchase.group_purchase_manager"  class="oe_highlight" />
+                        <button name="button_create" string="Approve"  states="con" type="object"  groups = "purchase.group_purchase_manager"  class="oe_highlight" />
                         <button name="action_reject"  string="Reject" states="con"  type="object"  groups="purchase.group_purchase_manager" class="oe_highlight"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,con,acc,rej"/>
                    </header>
@@ -118,54 +115,13 @@
 <!-- new name adding pr0001 v-->
         <record id="seq_purchase_requster" model="ir.sequence">
             <field name="name">Purchase Request</field>
-            <field name="code">purchase.order</field>
+            <field name="code">purchase.requster</field>
             <field name="prefix">PR</field>
             <field name="padding">5</field>
             <field name="implementation">standard</field>
             <field name="company_id" eval="False"/>
             
         </record>
-
-        <record id="purchase_request_order_inherit" model="ir.ui.view">
-            <field name="name">purchase.request.order.inherit</field>
-            <field name="model">purchase.order</field>
-            <field name="inherit_id" ref="purchase.purchase_order_form"/>
-            <field name="arch" type="xml">
-             <xpath expr="//page[2][@name='purchase_delivery_invoice']" position="after">
-              <page string="Terms">
-                  <group string="Scope " >
-                        <group col="6" >
-                           <field name="scope_goods" />
-                           <field name="scope_service" />
-                           <field name="scope_consumable"/>
-                                    
-                        </group>
-                        <group col="6">
-                            <field name="scope_spare" />
-                            <field name="scope_document"/>
-                            <field name="scope_warranty"/>
-                                  
-                        </group>
-                        <group>
-                            <field name="scope_installation"/>
-                        </group>
-                  </group>
-                  <group string="Requested Document ">
-                        <group col="6"> 
-                           <field name="doc_user_manuel" />
-                           <field name="doc_maintenance"/>
-                           <field name="doc_ata_shipping"/>
-                        </group>
-                        <group col="6">
-                            <field name="doc_certificate"/>
-                            <field name="doc_license"/>
-                            <field name="doc_emc"/>
-                        </group>
-                  </group> 
-              </page>        
-            </xpath>
-            </field>
-       </record> 
         
        
      <!-- button fields -->
@@ -173,7 +129,6 @@
             <field name="name">Purchase Request</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">purchase.requster</field>
-            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
               <p class="o_view_nocontent_smiling_face">
