@@ -14,9 +14,13 @@
     </template> -->
     <report
             id="report_purchase_request" 
-            model="purchase.requster" 
+            model="purchase.order" 
             string="Purchase Request"
             report_type="qweb-pdf"
             name="purchase_request.report_purchase" 
             file="purchase_request.report_purchase"/>
+            <!-- print_report_name="
+                ( 'Purchase Order - %s' % (object.name)) or
+                  'Purchase Request - %s' % (object.name)))"/> -->
+            
 </odoo>

@@ -9,7 +9,7 @@ from odoo.exceptions import AccessError, UserError, ValidationError
 
 class PurchaseRequster(models.Model):
     _name = "purchase.requster"
-    _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
+    _inherit = ['res.partner', 'mail.thread', 'mail.activity.mixin', 'portal.mixin']
     _description = 'Purchase Request'
     _rec_name = 'name_seq'
 
@@ -39,7 +39,7 @@ class PurchaseRequster(models.Model):
 
 
 
-    
+    @api.multi
     def action_purchase(self):
         for rec in self:
             rec.state = 'con'
@@ -52,10 +52,11 @@ class PurchaseRequster(models.Model):
                                            'res_id': self.id,
                                            'res_model_id': res_model_id,
                                            'note': 'Task',
-                                           }])
+                                           'view_type': 'form',
+                                           'view_mode': 'form', }])
 
 
-    
+    @api.multi
     def button_approve(self,context=None):
         for rec in self:
             rec.state = 'acc' 
@@ -73,16 +74,16 @@ class PurchaseRequster(models.Model):
             
         }
 
-    
+    @api.multi
     def button_convert(self):
         for rec in self:
             rec.state = 'con' 
-    
+    @api.multi
     def button_cancel(self):
         for rec in self:
             rec.state = 'rej' 
          
-    
+    @api.multi
     def button_create(self):
         
         for rec in self:
@@ -91,6 +92,7 @@ class PurchaseRequster(models.Model):
     def _getUserGroupId(self):
         return [('groups_id', '=', self.env.ref('purchase.group_purchase_manager').id)]
 
+    
     approver_id=fields.Many2one('res.users', string='Approver',  domain=_getUserGroupId, readonly=False, states={'acc': [('readonly', True)]}, track_visibility='always')
     description = fields.Text(string="Aciklama", required=True, states={'acc': [('readonly', True)]}, track_visibility='always')
     name_seq = fields.Char(string="Purchase Reference ", required=True, copy=False, readonly=True,  index=True,
@@ -116,7 +118,8 @@ class PurchaseRequster(models.Model):
         ('reject', 'Reject'),
         # ('lock', [('readonly', True)]),
     ], string='Status', default='draft', readonly=True, track_visibility='always')
-
+    
+   
 class PurchaseOrderInherit(models.Model):
     _inherit = "purchase.order"
 
@@ -129,7 +132,25 @@ class PurchaseOrderInherit(models.Model):
     approver_id=fields.Many2one( string='Approver', domain=_getUserGroupId , readonly=True )
     purchase_inhrt_id = fields.Many2one( 'res.users', string='Approver',  store=True, readonly=False )
     purchase_requester_id =fields.Many2one('purchase.requster', string='Purchase Request Reference' )
-   
-     
 
-    
+    scope_goods = fields.Boolean(string="Goods ", help='')
+    scope_service = fields.Boolean(string="Service ", help='')
+    scope_consumable = fields.Boolean(string="Consumable ", help='')
+    scope_spare = fields.Boolean(string="Spare Part ", help='')
+    scope_document = fields.Boolean(string="Document", help='')
+    scope_warranty = fields.Boolean(string="Warranty ", help='')
+    scope_installation = fields.Boolean(string="Installtion Support ", help='')
+    doc_user_manuel = fields.Boolean(string="User Manuel ", help='')
+    doc_maintenance = fields.Boolean(string="Maintenance Manuel ", help='')
+    doc_ata_shipping = fields.Boolean(string="ATA, Shipping Documents", help='')
+    doc_certificate = fields.Boolean(string="Warranty Certif,cat ", help='')
+    doc_license = fields.Boolean(string="License Certificate ", help='')
+    doc_emc = fields.Boolean(string="EMC, CE etc", help='')
+
+    product_qty = fields.Float(string='Quantity', compute="amount_all") 
+    def  amount_all(self):
+        for order in self:
+            amount = 0.0
+            for line in order.order_line:
+                amount += line.product_qty
+            order.product_qty = amount
