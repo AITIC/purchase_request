@@ -31,16 +31,10 @@
         <field name="groups" eval="[(4, ref('boraq_purchase_request.purchase_request_group'))]"/>
         <field name="domain_force">[('create_uid','=',user.id)]</field>
     </record>
-    <record model="ir.rule" id="purchase_request_user_rule">
-        <field name="name">Purchase requester rule for user</field>
-        <field name="model_id" ref="model_purchase_requster"/>
-        <field name="groups" eval="[(4, ref('purchase.group_purchase_user'))]"/>
-        <field name="domain_force">[('approver_id','=',user.id)]</field>
-    </record>
     <record model="ir.rule" id="purchase_request_admin_rule">
         <field name="name">Purchase requester rule for admin</field>
         <field name="model_id" ref="model_purchase_requster"/>
         <field name="groups" eval="[(4, ref('purchase.group_purchase_manager'))]"/>
-        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="domain_force">[('approver_id','=',user.id)]</field>
     </record>
 </odoo>
