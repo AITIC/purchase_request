@@ -49,7 +49,7 @@
 
                             <group>
                                 <field name="user_id" class="oe_inline" invisible="1"/>
-                                <field name="purchase_order_id" widget="many2many_tags"/>
+                                <field name="purchase_order_id" widget="many2many_tags"  invisible="1"/>
                             </group>
                          </page>
                       </notebook>
@@ -137,7 +137,7 @@
              
             </field>
         </record>
-    <menuitem action="purchase_form_action_inherit" id="menu_purchase_form_action" parent="purchase.menu_procurement_management"/>
+    <menuitem action="purchase_form_action_inherit" id="menu_purchase_form_action" parent="purchase.menu_procurement_management" groups="boraq_purchase_request.purchase_request_group"/>
 
         
 </odoo>
