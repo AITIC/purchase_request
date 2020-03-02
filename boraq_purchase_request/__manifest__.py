@@ -14,7 +14,7 @@
     'data': [
         'security/security.xml', 
         'security/ir.model.access.csv', 
-        'views/requster.xml',
+        'views/requester.xml',
         'reports/report.xml',
         'reports/report_card.xml',
     ],
