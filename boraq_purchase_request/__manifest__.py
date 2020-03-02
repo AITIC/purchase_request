@@ -12,15 +12,14 @@
     'depends': ['account','purchase','partner_autocomplete'],
     "license": "AGPL-3",
     'data': [
+        'security/security.xml', 
+        'security/ir.model.access.csv', 
         'views/requster.xml',
         'reports/report.xml',
         'reports/report_card.xml',
-        'security/security.xml', 
-        'security/ir.model.access.csv', 
     ],
     "images": ['static/description/banner.png'],
     'demo': [
-        'data/purchase_demo.xml',
     ],
     'installable': True,
     'auto_install': False,

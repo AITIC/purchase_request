@@ -8,8 +8,7 @@ from odoo.exceptions import AccessError, UserError, ValidationError
 
 class PurchaseRequster(models.Model):
     _name = "purchase.requster"
-    _inherit = ['res.partner', 'mail.thread',
-                'mail.activity.mixin', 'portal.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
     _description = 'Purchase Request'
     _rec_name = 'name_seq'
 
