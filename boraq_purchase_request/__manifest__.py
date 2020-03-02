@@ -12,7 +12,7 @@
     'depends': ['account','purchase'],
     "license": "AGPL-3",
     'data': [
-        'views/requster.xml',
+        'views/requester.xml',
         'reports/report.xml',
         'reports/report_card.xml',
         'security/security.xml', 

@@ -14,7 +14,7 @@
     </template> -->
     <report
             id="report_purchase_request" 
-            model="purchase.requster" 
+            model="purchase.requester" 
             string="Purchase Request"
             report_type="qweb-pdf"
             name="purchase_request.report_purchase" 

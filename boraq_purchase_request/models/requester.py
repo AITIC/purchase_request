@@ -6,8 +6,8 @@ from datetime import datetime
 from odoo.exceptions import AccessError, UserError, ValidationError
 
 
-class PurchaseRequster(models.Model):
-    _name = "purchase.requster"
+class Purchaserequester(models.Model):
+    _name = "purchase.requester"
     _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
     _description = 'Purchase Request'
     _rec_name = 'name_seq'
@@ -16,8 +16,8 @@ class PurchaseRequster(models.Model):
     def create(self, vals):
         if vals.get('name_seq', 'New') == 'New':
             vals['name_seq'] = self.env['ir.sequence'].next_by_code(
-                'purchase.requster') or '/'
-        return super(PurchaseRequster, self).create(vals)
+                'purchase.requester') or '/'
+        return super(Purchaserequester, self).create(vals)
 
     @api.depends()
     def action_toapprove(self):
@@ -122,4 +122,4 @@ class PurchaseOrderInherit(models.Model):
     purchase_inhrt_id = fields.Many2one(
         'res.users', string='Approver',  store=True, readonly=False)
     purchase_requester_id = fields.Many2one(
-        'purchase.requster', string='Purchase Request Reference')
+        'purchase.requester', string='Purchase Request Reference')

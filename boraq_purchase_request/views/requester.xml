@@ -2,8 +2,8 @@
 <odoo>
 <!--             button a create tree view-->
         <record id="purchase_tree" model="ir.ui.view">
-            <field name="name">purchase.requster.tree.view</field>
-            <field name="model">purchase.requster</field>
+            <field name="name">purchase.requester.tree.view</field>
+            <field name="model">purchase.requester</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name_seq" readonly="1"/>
@@ -16,8 +16,8 @@
         </record>
 
         <record id="purchase_form" model="ir.ui.view">
-            <field name="name">purchase.requster.form</field>
-            <field name="model">purchase.requster</field>
+            <field name="name">purchase.requester.form</field>
+            <field name="model">purchase.requester</field>
             <field name="arch" type="xml">
                 <form>
                     <header>
@@ -79,8 +79,8 @@
 		   </field>
 	    </record>
         <record  id="purchase_kanban_view" model="ir.ui.view">
-           <field name="name">purchase.requster.kanban</field>
-           <field name="model">purchase.requster</field>
+           <field name="name">purchase.requester.kanban</field>
+           <field name="model">purchase.requester</field>
            <field name="arch" type="xml">
                <kanban class="o_kanban_mobile">
                    <field name="name_seq" readonly="1" />
@@ -113,9 +113,9 @@
          
          
 <!-- new name adding pr0001 v-->
-        <record id="seq_purchase_requster" model="ir.sequence">
+        <record id="seq_purchase_requester" model="ir.sequence">
             <field name="name">Purchase Request</field>
-            <field name="code">purchase.requster</field>
+            <field name="code">purchase.requester</field>
             <field name="prefix">PR</field>
             <field name="padding">5</field>
             <field name="implementation">standard</field>
@@ -128,7 +128,7 @@
        <record id="purchase_form_action_inherit" model="ir.actions.act_window">
             <field name="name">Purchase Request</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">purchase.requster</field>
+            <field name="res_model">purchase.requester</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
               <p class="o_view_nocontent_smiling_face">
