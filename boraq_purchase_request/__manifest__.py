@@ -12,11 +12,9 @@
     'depends': ['account','purchase'],
     "license": "AGPL-3",
     'data': [
-        'views/requester.xml',
-        'reports/report.xml',
-        'reports/report_card.xml',
         'security/security.xml', 
         'security/ir.model.access.csv', 
+        'views/requester.xml',
     ],
     "images": ['static/description/banner.png'],
     'demo': [],
