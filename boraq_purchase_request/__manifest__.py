@@ -3,7 +3,7 @@
 
 {
     'name': 'Purchase Request',
-    'version': '13.0.1.0.0',
+    'version': '14.0.1.0.0',
     'category': 'Purchases',
     'summary': 'Purchase Request is an alternative and simple module to Approvals',
     'description': "",
@@ -12,8 +12,8 @@
     'depends': ['account','purchase'],
     "license": "AGPL-3",
     'data': [
-        'security/security.xml', 
-        'security/ir.model.access.csv', 
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/requester.xml',
     ],
     "images": ['static/description/banner.png'],

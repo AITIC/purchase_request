@@ -24,7 +24,7 @@
                         <button name="action_purchase" string="To Approve" type="object" states="draft" class="oe_highlight" /> 
                         <button name="button_approve" string="Convert To PRQ" attrs="{'invisible':['|',('purchase_order_id','!=',[]),('state','in',['draft','drft','con','rej','toapprove','app','reject',])]}" type="object" groups="purchase.group_purchase_manager"  class="oe_highlight" />
                         <button name="button_cancel" string="Cancel" states="acc" type="object"  groups = "purchase.group_purchase_manager"  class="oe_highlight" />
-                        <button name="button_convert" string="Convert To Draft" attrs="{'invisible':['|', ('state', 'not in', ('rej'))]}" type="object"  groups = "purchase.group_purchase_manager"  class="oe_highlight" />
+                        <button name="button_convert" string="Convert To Draft" attrs="{'invisible':[('state', 'not in', ('rej'))]}" type="object"  groups = "purchase.group_purchase_manager"  class="oe_highlight" />
                         <button name="button_create" string="Approve"  states="con" type="object"  groups = "purchase.group_purchase_manager"  class="oe_highlight" />
                         <button name="action_reject"  string="Reject" states="con"  type="object"  groups="purchase.group_purchase_manager" class="oe_highlight"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,con,acc,rej"/>
